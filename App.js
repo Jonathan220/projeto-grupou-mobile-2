@@ -1,11 +1,17 @@
+import { NavigationContainer } from '@react-navigation/native';
 import React from 'react';
-import { StyleSheet } from 'react-native';
+import 'react-native-gesture-handler';
 
-import Login from './pages/login/index';
+
+import Routes from './routes';
+import './services/firebase';
+import {UsuarioProvider} from './contexts/user';
 
 export default function App() {
   return (
-    <Login />
+    <UsuarioProvider>
+      <Routes />
+    </UsuarioProvider>
   );
 }
 

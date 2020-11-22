@@ -9,17 +9,17 @@ export const Container = styled.View`
 
 export const CaixaLogin = styled.View`
     background-color: #fff;
-    height: 60%;
-    border-top-left-radius: 25;
-    border-top-right-radius: 25;
-    border-bottom-left-radius: 25;
-    border-bottom-right-radius: 25;
-    margin: 5px;
+    height: 55%;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    margin: 0px 5px;
+    padding: 10px;
 `
 
 export const LogoMarca = styled.View`
-    background-color: yellow;
     flex:2;
+    justify-content: center;
+    align-items: center;
 `
 export const CaixaTextoLogo = styled.View`
     flex:1;
@@ -42,32 +42,58 @@ export const Botao = styled.TouchableOpacity`
     flex:1;
     justify-content: center;
     align-items: center;
-    height: 50px;
+    height: 40px;
     border-bottom-width: 3px;
-    border-bottom-color: #AE1B73;
-    margin: 6px;
+    border-bottom-color: ${props => props.lastclick ? "#AE1B73" : "#fff"};
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 3px;
+    margin-right: 3px;
 `
 export const TextoBotao = styled.Text`
-    font-size: 22px;
-    color: #AE1B73;
+    font-size: 20px;
+    color: ${props => props.lastclick ? "#AE1B73" : "#ccc"};
 `
 export const ContainerAba = styled.View`
     flex-direction: row;
 `
-export const CampoNome = styled.TextInput`
+export const CampoTexto = styled.TextInput`
     height: 50px;
-    width: 100%
-    background-color: pink;
-    border-color: black;
+    border-color: #ccc;
     border-width: 1px;
+    padding: 8px 5px;
+    margin: 6px 20px;
+    border-radius: 5px;
 `
-export const CampoSenha = styled.TextInput`
-    height: 50px;
-    width: 100%
-    background-color: pink;
-    border-color: black;
-    border-width: 1px;
-`
-export const TextoCampos = styled.Text`
 
+export const TextoCampos = styled.Text`
+    margin: 3px 20px;
+    font-size: 16px;
+    color: #ccc;
+`
+export const CaixaBotoes = styled.View`
+    flex-direction: row;
+    margin: 0px 15px;
+`
+export const BotaoCadastro = styled.TouchableOpacity`
+    background-color: ${props => props.invert ? "#AE1B73" : "#fff"};
+    border: 1px solid #AE1B73;
+    height: 55px;
+    flex: 1;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+    margin: 0px 5px;
+`
+
+export const TextoBotaoCadastro = styled.Text`
+    color: ${props => props.invert ? "#fff" : "#ae1b73"};
+    font-size: 16px;
+    font-weight: bold;
+`
+export const EsqueceuSenha = styled.Text`
+    color: #AE1B73;
+    text-align: right;
+    font-size: 14px;
+    margin: 3px 20px;
 `
