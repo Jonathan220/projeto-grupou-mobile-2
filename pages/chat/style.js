@@ -65,17 +65,18 @@ export const Mensagem = styled.Text`
 export const CaixaMensagemMaior = styled.View`
     width: 100%;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: ${props => props.autorMsg ? "flex-start" : "flex-end"};
     padding: 10px;
 `
 
 export const CaixaMensagem = styled.View`
-    background-color: #ccc;
+    background-color: ${props => props.autorMsg ? "#fff" : "#ccc"};
     width: 80%;
-    padding: 20px;
+    padding: 10px;
     border-radius: 5px;
-    flex-direction: row;
+    flex-direction: column;
 `
 export const AutorMensagem = styled.Text`
-
+    font-size: 12px;
+    color: #AE1B73;
 `

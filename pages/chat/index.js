@@ -1,13 +1,16 @@
-import React, {useContext, useState} from 'react';
-import { Container, ContainerNome, TextoLogo, CaixaBotoes, BotaoCadastro, TextoBotaoCadastro, CampoTexto, ContainerMensagem, Mensagem, CaixaMensagemMaior, CaixaMensagem } from './style';
+import React, {useContext, useState, useEffect} from 'react';
+import { Container, ContainerNome, TextoLogo, CaixaBotoes, BotaoCadastro, TextoBotaoCadastro, CampoTexto, ContainerMensagem, Mensagem, CaixaMensagemMaior, CaixaMensagem, AutorMensagem } from './style';
 import {UsuarioContext} from '../../contexts/user';
 import firebase from 'firebase';
 import 'firebase/firestore';
+import { ScrollView } from 'react-native-gesture-handler';
+
 
 const Chat = () => {
-    const [mensagem, setMensagem] = useState(["um", "doi", "olá galera qunato tempo, como vão eestá tudo beeeeem?"]);
-    const [mensagemEnviada, setMensagemEnviada] = useState("olá");
-
+    let dataAtual = new Date();
+    const [mensagem, setMensagem] = useState([]);
+    const [mensagemEnviada, setMensagemEnviada] = useState("");
+    
     const HandleMensagem = () => {
         if(mensagemEnviada == ""){
             console.warn("Prencha o campo");
@@ -19,14 +22,29 @@ const Chat = () => {
                 {
                     texto: mensagemEnviada,
                     lida: false,
-                    autor: user.email
+                    autor: user.email,
+                    data: dataAtual.getDate() + "/" + dataAtual.getMonth() +"/" + dataAtual.getFullYear() + " - " + dataAtual.getHours() + ":" + dataAtual.getMinutes()
                 }
             )
+            setMensagemEnviada("");
         } catch (error) {
             console.warn("erro de comunicação, tente mais tarde");
         }
     }
 
+    const ListenUpdateMenssages = (snap) =>{
+        const data = snap.docs.map(doc => {
+            return{
+                id: doc.id,
+                ...doc.data()
+            }
+        })
+        setMensagem(data);
+    }
+    useEffect(() => {
+        const listener = firebase.firestore().collection("mensagens").orderBy("data", "asc").onSnapshot(ListenUpdateMenssages);
+    },[]);
+    
     const {user} =useContext(UsuarioContext);
     return (
         <Container>
@@ -36,15 +54,32 @@ const Chat = () => {
                 </TextoLogo>
             </ContainerNome>
             <ContainerMensagem>
-                {mensagem.map(msg => 
-                    <CaixaMensagemMaior>
-                        <CaixaMensagem>
-                            <Mensagem>
-                                {msg}
-                            </Mensagem>
-                        </CaixaMensagem>  
-                    </CaixaMensagemMaior>
-                )}
+                <ScrollView>
+                    {mensagem.map(msg => (msg.autor==user.email ?
+                        <CaixaMensagemMaior autorMsg={true}>
+                            <CaixaMensagem autorMsg={true}>
+                                <AutorMensagem>
+                                    {msg.autor} : {msg.data}
+                                </AutorMensagem>
+                                <Mensagem>
+                                    {msg.texto}
+                                </Mensagem>
+                            </CaixaMensagem>  
+                        </CaixaMensagemMaior>
+                        :
+                        <CaixaMensagemMaior autorMsg={false}>
+                            <CaixaMensagem autorMsg={false}>
+                                <AutorMensagem>
+                                    {msg.autor} : {msg.data} 
+                                </AutorMensagem>
+                                <Mensagem>
+                                    {msg.texto}
+                                </Mensagem>
+                            </CaixaMensagem>  
+                        </CaixaMensagemMaior>    
+                        )
+                    )}
+                </ScrollView>
             </ContainerMensagem>
             <CaixaBotoes >
                 <CampoTexto placeholder="Digite sua mensagem..." value={mensagemEnviada} onChangeText={texto => setMensagemEnviada(texto)}/>
