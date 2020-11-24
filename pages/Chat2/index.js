@@ -6,7 +6,7 @@ import 'firebase/firestore';
 import { ScrollView } from 'react-native-gesture-handler';
 
 
-const Chat = ({navigation}) => {
+const Chat2 = ({navigation}) => {
     let dataAtual = new Date();
     const [mensagem, setMensagem] = useState([]);
     const [mensagemEnviada, setMensagemEnviada] = useState("");
@@ -93,4 +93,4 @@ const Chat = ({navigation}) => {
     )
 }
 
-export default Chat;
+export default Chat2;
