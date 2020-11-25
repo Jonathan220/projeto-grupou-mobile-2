@@ -18,7 +18,7 @@ const Chat2 = ({navigation}) => {
         }
 
         try {
-            firebase.firestore().collection('mensagens').add(
+            firebase.firestore().collection('chat2').add(
                 {
                     texto: mensagemEnviada,
                     lida: false,
@@ -42,7 +42,7 @@ const Chat2 = ({navigation}) => {
         setMensagem(data);
     }
     useEffect(() => {
-        const listener = firebase.firestore().collection("mensagens").orderBy("data", "asc").onSnapshot(ListenUpdateMenssages);
+        const listener = firebase.firestore().collection("chat2").orderBy("data", "asc").onSnapshot(ListenUpdateMenssages);
     },[]);
     
     const {user} =useContext(UsuarioContext);
