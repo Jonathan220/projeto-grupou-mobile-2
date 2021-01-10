@@ -4,9 +4,9 @@
 
 # Sobre o projeto
 
-O projeto Grupou é uma aplicação mobile desenvolvida durante o segundo semestre de 2021 na disciplina desenvolvimente de apalicações mobile do curso de análise e desenvolvimento de sistemas na faculdade da unicarioca. 
+O projeto Grupou é uma aplicação mobile desenvolvida durante o segundo semestre de 2021 na disciplina desenvolvimento de aplicações mobile do curso de análise e desenvolvimento de sistemas na faculdade da unicarioca. 
 
-A aplicação consiste um chat com com uso do banco de dados noSQL do firebase (**firestore**) e no uso do **firebase authetication** para a indentificação e login dos usuário. O chat é divido em grupos. Os membros de um grupo não conseguem ter acesso ao histórico do chat de outros grupos ao qual não fazem parte.
+A aplicação consiste um chat com com uso do banco de dados noSQL do firebase (**firestore**) e no uso do **firebase authetication** para a identificação e login dos usuário. O chat é divido em grupos. Os membros de um grupo não conseguem ter acesso ao histórico do chat de outros grupos ao qual não fazem parte.
 
 # Tecnologias utilizadas
 
