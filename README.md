@@ -20,7 +20,7 @@ A aplicação consiste um chat com com uso do banco de dados noSQL do firebase (
 
 # Como executar o projeto
 
-Pré-requisitos: npm / yarn
+Pré-requisitos: npm / yarn, Expo
 
 ```bash
 # clonar repositório
