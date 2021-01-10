@@ -1,6 +1,6 @@
 # projeto-grupou-mobile-2
 
-[![NPM](https://img.shields.io/npm/l/react)](https://img.shields.io/github/license/jonathan220/projeto-grupou-mobile-2?style=flat-square) 
+[![NPM](https://img.shields.io/npm/l/react)](https://github.com/Jonathan220/projeto-grupou-mobile-2/blob/main/LICENSE) 
 
 # Sobre o projeto
 
