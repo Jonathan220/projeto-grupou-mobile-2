@@ -8,6 +8,14 @@ O projeto Grupou é uma aplicação mobile desenvolvida durante o segundo semest
 
 A aplicação consiste um chat com com uso do banco de dados noSQL do firebase (**firestore**) e no uso do **firebase authetication** para a identificação e login dos usuário. O chat é divido em grupos. Os membros de um grupo não conseguem ter acesso ao histórico do chat de outros grupos ao qual não fazem parte.
 
+## Layout
+<img src="https://github.com/Jonathan220/projeto-grupou-mobile-2/blob/main/assets/assets-readme/Screenshot_2021-01-10-19-12-47.png" alt="Imagem 1"
+	title="Tela principal" width="300" height="550" />
+  
+<img src="https://github.com/Jonathan220/projeto-grupou-mobile-2/blob/main/assets/assets-readme/Screenshot_2021-01-10-19-28-41.png" alt="Imagem 4"
+	title="Tela de chat" width="300" height="550" />
+
+
 # Tecnologias utilizadas
 
 - Javascript
