@@ -56,7 +56,7 @@ const Chat2 = ({navigation}) => {
             <ContainerMensagem>
                 <ScrollView>
                     {mensagem.map(msg => (msg.autor==user.email ?
-                        <CaixaMensagemMaior autorMsg={true}>
+                        <CaixaMensagemMaior key={msg.key} autorMsg={true}>
                             <CaixaMensagem autorMsg={true}>
                                 <AutorMensagem>
                                     {msg.autor} : {msg.data}
